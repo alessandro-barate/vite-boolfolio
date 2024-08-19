@@ -1,10 +1,8 @@
-<script >
+<script>
 export default {
-  name: '',
+  name: "",
   components: {},
 };
 </script>
 
-<template>
-  
-</template>
+<template></template>
