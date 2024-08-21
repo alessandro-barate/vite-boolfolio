@@ -7,6 +7,22 @@ export default {
       title: "Projects",
     };
   },
+
+  methods: {
+    testLifeCycle() {
+      console.log("ciao babbo");
+    },
+
+    getPosts() {
+      const result = axios.get("http://127.0.0.1:8000/api/posts");
+      console.log(result);
+    },
+  },
+
+  created() {
+    this.testLifeCycle();
+    this.getPosts();
+  },
   components: {},
 };
 </script>
