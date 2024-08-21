@@ -5,4 +5,6 @@ export default {
 };
 </script>
 
-<template></template>
+<template>
+  <font-awesome-icon :icon="['fas', 'user-secret']" />
+</template>
