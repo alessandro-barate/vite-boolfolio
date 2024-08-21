@@ -1,10 +1,25 @@
 <script>
+import axios from "axios";
 export default {
-  name: "",
+  name: "Projects",
+  data() {
+    return {
+      title: "Projects",
+    };
+  },
   components: {},
 };
 </script>
 
 <template>
-  <font-awesome-icon :icon="['fas', 'user-secret']" />
+  <header>Header</header>
+  <main>
+    <div class="container">
+      <h1>{{ title }}</h1>
+      <div>
+        <font-awesome-icon :icon="['fas', 'user-secret']" />
+      </div>
+    </div>
+  </main>
+  <footer>Footer</footer>
 </template>
