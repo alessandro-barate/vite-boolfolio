@@ -5,7 +5,12 @@ export default {
 </script>
 
 <template>
-  <main>Homepage</main>
+  <main>
+    <h1>Homepage</h1>
+    <div>
+      <font-awesome-icon :icon="['fas', 'user-secret']" />
+    </div>
+  </main>
 </template>
 
 <style></style>

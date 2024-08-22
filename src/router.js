@@ -17,7 +17,7 @@ const router = createRouter({
       component: AppAbout,
     },
     {
-      path: "/blog",
+      path: "/posts",
       name: "posts",
       component: PostList,
     },
