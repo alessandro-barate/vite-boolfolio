@@ -1,5 +1,7 @@
 <script>
 import axios from "axios";
+import AppHeader from "./components/AppHeader.vue";
+import AppFooter from "./components/AppFooter.vue";
 export default {
   name: "Projects",
   data() {
@@ -7,6 +9,11 @@ export default {
       title: "Projects",
       projects: [],
     };
+  },
+
+  components: {
+    AppHeader,
+    AppFooter,
   },
 
   methods: {
@@ -32,12 +39,11 @@ export default {
   created() {
     this.getPosts();
   },
-  components: {},
 };
 </script>
 
 <template>
-  <header>Header</header>
+  <AppHeader />
   <main>
     <div class="container">
       <h1>{{ title }}</h1>
@@ -46,5 +52,5 @@ export default {
       </div>
     </div>
   </main>
-  <footer>Footer</footer>
+  <AppFooter />
 </template>
