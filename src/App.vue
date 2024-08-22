@@ -2,6 +2,8 @@
 import axios from "axios";
 import AppHeader from "./components/AppHeader.vue";
 import AppFooter from "./components/AppFooter.vue";
+import MainComponent from "./components/MainComponent.vue";
+import { RouterView } from "vue-router";
 export default {
   name: "Projects",
   data() {
@@ -13,6 +15,7 @@ export default {
 
   components: {
     AppHeader,
+    MainComponent,
     AppFooter,
   },
 
@@ -44,13 +47,6 @@ export default {
 
 <template>
   <AppHeader />
-  <main>
-    <div class="container">
-      <h1>{{ title }}</h1>
-      <div>
-        <font-awesome-icon :icon="['fas', 'user-secret']" />
-      </div>
-    </div>
-  </main>
+  <router-view></router-view>
   <AppFooter />
 </template>
