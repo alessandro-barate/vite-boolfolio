@@ -13,8 +13,8 @@ export default {
           postList: "posts",
         },
       },
-      response: {},
-      currentPage: 1,
+      post: null,
+      error: false,
     };
   },
 
@@ -37,10 +37,10 @@ export default {
       axios
         .get(url)
         .then((response) => {
-          this.response = response.data;
+          this.post = response.data.result;
           console.log(response);
         })
-        .catch((error) => console.log(error));
+        .catch((error) => (this.error = true));
     },
   },
 
@@ -51,8 +51,8 @@ export default {
 </script>
 
 <template>
-  <h1>Titolo</h1>
-  <p>Content</p>
+  <h1>{{ post.title }}</h1>
+  <p>{{ post.content }}</p>
   <p>Immagine</p>
   <div class="btn-width">
     <router-link class="btn btn-primary" :to="{ name: 'posts' }"
