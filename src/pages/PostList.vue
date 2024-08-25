@@ -29,9 +29,7 @@ export default {
         .get(url)
         .then((response) => {
           this.response = response.data;
-          // this.posts = response.data.results.data;
           console.log(response);
-          // console.log(response.data.results.data);
         })
         .catch((error) => console.log(error));
     },
@@ -46,7 +44,12 @@ export default {
 <template>
   <h1>Posts</h1>
   <div class="col-12 col-md-6 col-lg-4" v-for="post in response.results.data">
-    <PostCard />
+    <PostCard
+      :title="post.title"
+      :slug="post.slug"
+      :content="post.content"
+      :created="post.created_at"
+    />
   </div>
 </template>
 
