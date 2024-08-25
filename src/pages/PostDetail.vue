@@ -1,6 +1,17 @@
 <script>
 export default {
   name: "PostDetail",
+
+  methods: {
+    testRoute() {
+      console.log("ciao");
+      console.log(this.$route.params.slug);
+    },
+  },
+
+  created() {
+    this.testRoute();
+  },
 };
 </script>
 
