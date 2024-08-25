@@ -1,16 +1,51 @@
 <script>
+import axios from "axios";
+import PostCard from "../components/PostCard.vue";
+
 export default {
   name: "PostDetail",
 
+  data() {
+    return {
+      api: {
+        baseUrl: "http://localhost:8000/api/",
+        endPoints: {
+          postList: "posts",
+        },
+      },
+      response: {},
+      currentPage: 1,
+    };
+  },
+
   methods: {
-    testRoute() {
-      console.log("ciao");
-      console.log(this.$route.params.slug);
+    // testRoute() {
+    //   console.log("ciao");
+    //   console.log(this.$route.params.slug);
+    // },
+
+    getPosts() {
+      // Set up per la chiamata API
+      const url =
+        this.api.baseUrl +
+        this.api.endPoints.postList +
+        "/" +
+        this.$route.params.slug;
+      console.log(url);
+
+      // Chiamata API
+      axios
+        .get(url)
+        .then((response) => {
+          this.response = response.data;
+          console.log(response);
+        })
+        .catch((error) => console.log(error));
     },
   },
 
   created() {
-    this.testRoute();
+    this.getPosts();
   },
 };
 </script>
