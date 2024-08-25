@@ -1,7 +1,11 @@
 <script>
 import axios from "axios";
+import PostCard from "../components/PostCard.vue";
 export default {
   name: "Postlist",
+  components: {
+    PostCard,
+  },
   data() {
     return {
       api: {
@@ -42,7 +46,7 @@ export default {
 <template>
   <h1>Posts</h1>
   <div class="col-12 col-md-6 col-lg-4" v-for="post in response.results.data">
-    Card post
+    <PostCard />
   </div>
 </template>
 
