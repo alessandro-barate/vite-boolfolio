@@ -13,7 +13,12 @@ export default {
       <p class="card-text">
         {{ content }}
       </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+
+      <router-link
+        class="btn btn-primary"
+        :to="{ name: 'details', params: { slug } }"
+        >Details</router-link
+      >
     </div>
   </div>
 </template>
