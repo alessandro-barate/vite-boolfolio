@@ -15,7 +15,14 @@ export default {
       },
       post: null,
       error: false,
+      imageUrlDefault: "http://localhost:8000/storage/",
     };
+  },
+
+  computed: {
+    getImage() {
+      return this.imageUrlDefault + this.post.cover_image;
+    },
   },
 
   methods: {
@@ -53,7 +60,7 @@ export default {
 <template>
   <h1>{{ post.title }}</h1>
   <p>{{ post.content }}</p>
-  <p>Immagine</p>
+  <img :src="getImage" :alt="post.title" />
   <div class="btn-width">
     <router-link class="btn btn-primary" :to="{ name: 'posts' }"
       >Back to blogs</router-link
