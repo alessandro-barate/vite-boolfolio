@@ -4,25 +4,30 @@ export default {
   name: "Postlist",
   data() {
     return {
-      projects: [],
+      api: {
+        baseUrl: "http://localhost:8000/api/",
+        endPoints: {
+          postList: "posts",
+        },
+      },
+      response: {},
     };
   },
 
   methods: {
     getPosts() {
-      const result = axios
-        .get("http://127.0.0.1:8000/api/posts")
-        .then((response) => {
-          this.posts = response.data.results.data;
-          console.log(response);
-          console.log(response.data.results.data);
+      // Set up per la chiamata API
+      const url = this.api.baseUrl + this.api.endPoints.postList;
+      console.log(url);
 
-          // if (response.data.status && response.data.results.length) {
-          //   console.log("gestisco i dati in qualche modo");
-          //   this.projects = response.data.results;
-          // } else {
-          //   console.log("non ci siamo, errore");
-          // }
+      // Chiamata API
+      axios
+        .get(url)
+        .then((response) => {
+          this.response = response.data;
+          // this.posts = response.data.results.data;
+          console.log(response);
+          // console.log(response.data.results.data);
         })
         .catch((error) => console.log(error));
     },
@@ -34,6 +39,11 @@ export default {
 };
 </script>
 
-<template>Postlist</template>
+<template>
+  <h1>Posts</h1>
+  <div class="col-12 col-md-6 col-lg-4" v-for="post in response.results.data">
+    Card post
+  </div>
+</template>
 
 <style></style>
